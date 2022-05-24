@@ -12,8 +12,8 @@ export class ReactiveFormTestComponent implements OnInit {
 
   ngOnInit(): void {
     this.formularioLogin=this.fb.group({
-      usuario:['',Validators.required,Validators.email],
-      contrasena:['',Validators.required,Validators.minLength(3),Validators.maxLength(8)]
+      usuario:['',[Validators.required,Validators.email]],
+      contrasena:['',[Validators.required,Validators.minLength(3),Validators.maxLength(8)]]
     })
   }
   submit(){
