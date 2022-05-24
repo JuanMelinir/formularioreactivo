@@ -1,0 +1,23 @@
+<div class="form">
+    <form [FormGroup]="formularioLogin" ngSubmit="submit()">
+      <div class="mb-5" >
+        <label for="exampleInputEmail1" class="form-label">User</label>
+        <input type="email" formControlName="usuario" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div *ngIf="formularioLogin.get('usuario')?.errors?.['required']" class="alert alert-danger">El campo usuario no puede quedar en blanco</div>
+        <div *ngIf="formularioLogin.get('usuario')?.errors?.['email']" class="alert alert-danger">El campo usuario debe ser un email</div>
+        <div id="emailHelp" class="form-text">El campo no puede quedar en blanco.</div>
+      </div>
+      <div class="mb-5" >
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" formControlName="contrasena" class="form-control" id="exampleInputPassword1">
+        <div *ngIf="formularioLogin.get('contrasena')?.errors?.['required']"  class="alert alert-danger">El campo contraseña no puede quedar en blanco</div>
+        <div *ngIf="formularioLogin.get('contrasena')?.errors?.['minlength']"  class="alert alert-danger">El campo contraseña debe tener un minimo de 4 caracteres</div>
+        <div *ngIf="formularioLogin.get('contrasena')?.errors?.['maxlength']"  class="alert alert-danger">El campo contraseña maximo de 8 caracteres</div>
+        <div id="emailHelp" class="form-text">El campo no puede quedar en blanco.</div>
+        
+      </div>
+      <button type="submit" class="btn btn-secondary" [disable]!="formularioLogin.valid">Submit</button>
+    </form>
+ 
+  </div>
+  
